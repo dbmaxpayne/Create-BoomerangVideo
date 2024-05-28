@@ -15,7 +15,8 @@ function Run-Command ([String]$commandName, $argumentList, [String]$stdOutPath="
         New-Variable -Name process -Value $null -Scope Global -Force
         $global:process = Start-Process -FilePath "$commandName" `
                                  -ArgumentList $argumentList `
-                                 -Wait:$wait `                                 -PassThru `
+                                 -Wait:$wait `
+                                 -PassThru `
                                  -RedirectStandardError $tempPath\exifPS-StdErr.txt `
                                  -RedirectStandardOutput $stdOutPath `
                                  -ErrorAction Stop `
